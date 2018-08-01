@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "Youtube Playback play/pause",
+  "version": "1.0.0",
+  "description": "Allows hotkeys to play/pause YouTube videos.  Videos MUST be pinned to be used by hotkeys.",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_action": {
+    "default_title": "Youtube Tabs"
+	},
+  "permissions": [
+    "tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.youtube.com/*"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+  "commands": {
+    "toggle-pinned-tabs": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+J",
+        "mac": "Command+Shift+J"
+      },
+      "description": "Play/Pause all pinned YouTube videos",
+      "global": true
+    }
+  }
+}
